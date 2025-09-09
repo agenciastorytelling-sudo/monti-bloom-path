@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Fredoka', 'Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -22,10 +26,19 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          soft: "hsl(var(--primary-soft))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          soft: "hsl(var(--secondary-soft))",
+        },
+        warm: {
+          coral: "hsl(var(--warm-coral))",
+          "coral-foreground": "hsl(var(--warm-coral-foreground))",
+          peach: "hsl(var(--warm-peach))",
+          lavender: "hsl(var(--warm-lavender))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -46,6 +59,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          soft: "hsl(var(--card-soft))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -57,6 +71,20 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        'gradient-garden': 'var(--gradient-garden)',
+        'gradient-sky': 'var(--gradient-sky)',
+        'gradient-sunrise': 'var(--gradient-sunrise)',
+        'gradient-lavender': 'var(--gradient-lavender)',
+      },
+      boxShadow: {
+        'soft': 'var(--shadow-soft)',
+        'card': 'var(--shadow-card)',
+        'floating': 'var(--shadow-floating)',
+      },
+      transitionTimingFunction: {
+        'organic': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
       borderRadius: {
         lg: "var(--radius)",
