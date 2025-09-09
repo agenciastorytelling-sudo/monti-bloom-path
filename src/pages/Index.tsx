@@ -16,7 +16,7 @@ const Index = () => {
               <span className="text-white font-display font-medium">M</span>
             </div>
             <div>
-              <h1 className="font-display font-medium text-lg">Jardim Montessori</h1>
+              <h1 className="font-display font-medium text-lg">IA CETOP</h1>
               <p className="text-sm text-muted-foreground">Olá, Maria! 👋</p>
             </div>
           </div>
