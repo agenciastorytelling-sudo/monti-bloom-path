@@ -1,11 +1,44 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { MontessoriGarden } from "@/components/MontessoriGarden";
 import { DailyMissions } from "@/components/DailyMissions";
 import { ChildProgress } from "@/components/ChildProgress";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Settings, User, Bell } from "lucide-react";
+import { Settings, User, Bell, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
+  const { user, loading, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate("/login");
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 bg-gradient-garden rounded-xl flex items-center justify-center mx-auto mb-4 shadow-soft animate-pulse">
+            <span className="text-white font-display font-medium">IA</span>
+          </div>
+          <p className="text-muted-foreground">Carregando...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null; // Will redirect to login
+  }
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/login");
+  };
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -28,8 +61,8 @@ const Index = () => {
             <Button variant="ghost" size="icon">
               <User className="w-5 h-5" />
             </Button>
-            <Button variant="outline" asChild>
-              <a href="/login">Entrar</a>
+            <Button variant="ghost" size="icon" onClick={handleSignOut} title="Sair">
+              <LogOut className="w-5 h-5" />
             </Button>
             <Button variant="ghost" size="icon">
               <Settings className="w-5 h-5" />
